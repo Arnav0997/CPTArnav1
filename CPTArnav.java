@@ -9,14 +9,11 @@ public class CPTArnav{
 		CPTTools.ShowHomescreen(con);
 		intScreenType = con.readInt();
 		
-		if(intScreenType = 1){
-			con.clear(500);
+		if(intScreenType == 1){
 			CPTTools.ShowPlayscreen(con);
-		}else if(intScreenType = 2){
-			con.clear(500);
+		}else if(intScreenType == 2){
 			CPTTools.ShowLeaderboardscreen(con);
-		}else if(intScreenType = 3){
-			con.clear(500);
+		}else if(intScreenType == 3){
 			CPTTools.ShowQuitscreen(con); 
 		}else{
 			con.println("That's not an option");
