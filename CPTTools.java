@@ -46,4 +46,13 @@ public class CPTTools{
 	con.println("Thanks for playing");
 	
 	}
+	
+	public static void StartGame
+	
+		int intCardnumber[][];
+		intCardnumber = new int[54][3];
+
+		for(int row = 0; row < 54; row++){
+			for(int col = 0; col < 3; col++){
+				
 }
