@@ -47,12 +47,30 @@ public class CPTTools{
 	
 	}
 	
-	public static void StartGame
+	public static void ShuffleDeck(){
+		
+	int intCountCol;
+	int intCountRow;
+	int intCol0 = 1;
+	int intCol1 = 1;
 	
-		int intCardnumber[][];
 		intCardnumber = new int[54][3];
 
-		for(int row = 0; row < 54; row++){
-			for(int col = 0; col < 3; col++){
+		for(intCountRow = 0; intCountRow < 54; intCountRow++){
+			for(intCountCol = 0; intCountCol < 3; intCountCol++){
+				if(intCountCol == 0){
+					intCardnumber[intCountRow][intCountCol] = [intCountRow][0];
+					intCol0++;
+					if(intCol0 == 13){
+						intCol0 = 1;
+						}if(intCol1 == 4)
+							intCol1 = 1;
+					
+				}
 				
-}
+				
+
+            }
+        }
+
+
