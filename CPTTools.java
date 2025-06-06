@@ -37,7 +37,7 @@ public class CPTTools{
         con.println("Thanks for playing");
     }
     
-    public static void ShuffleDeck(){
+    public int[][] CreateDeck(){
         int intCountCol;
         int intCountRow;
         int intCol0 = 1;
@@ -73,7 +73,17 @@ public class CPTTools{
                     intCardnumber[intCountRow][intCountCol] = (int)((Math.random() * 100) + 1);    
                 }
             }
-        }
-        
+        }    return intCardnumber;  
     }
+    
+    public void ShowDeck(int array[][]){
+	
+	for(int i = 0; i < array.length; i++){
+		for(int j = 0; j < array[0].length; j++){
+			con.println(array[i][j]);
+		}
 }
+}
+}
+        
+	

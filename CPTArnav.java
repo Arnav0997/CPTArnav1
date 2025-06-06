@@ -21,6 +21,7 @@ public class CPTArnav{
 			}else{
 				con.println("That's not an option");
 			}
+			CPTTools.ShowDeck(CPTTools.CreateDeck());
 		}
 	}
 }
