@@ -7,7 +7,6 @@ public class CPTArnav{
     
 		int intCardnumber[][] = new int[52][3];
 		int intScreenType = 0;
-		
 	
 		while(intScreenType !=3){			
 			CPTTools.ShowHomescreen(con);
@@ -21,6 +20,8 @@ public class CPTArnav{
 				CPTTools.ShowQuitscreen(con); 
 			}else if(intScreenType == 0){
 				CPTTools.CreateDeck(intCardnumber);
+				CPTTools.ShowDeck(con, intCardnumber);
+				CPTTools.ShuffleDeck(intCardnumber);
 				CPTTools.ShowDeck(con, intCardnumber);
 			}else{
 				con.println("That's not an option");

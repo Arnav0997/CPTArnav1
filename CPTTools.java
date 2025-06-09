@@ -81,6 +81,35 @@ public class CPTTools{
 			con.println(intCardnumber[i][0] + "-" + intCardnumber[i][1] + "-" + intCardnumber[i][2]);
 		}
 	}
+	
+	public static void ShuffleDeck(int intCardnumber[][]){	
+		
+		int intCount;
+		int intCount2;
+		int intTemp;
+		
+		for(intCount = 0; intCount < 52-1; intCount++){
+			for(intCount2 = 0; intCount2 < 52-1; intCount2++){
+				if(intCardnumber[intCount2][2] > intCardnumber[intCount2+1][2]){
+					
+					
+					intTemp = intCardnumber[intCount2][1];
+					intCardnumber[intCount2][1] = intCardnumber[intCount2+1][1];
+					intCardnumber[intCount2+1][1] = intTemp;
+					
+					intTemp = intCardnumber[intCount2][0];
+					intCardnumber[intCount2][0] = intCardnumber[intCount2+1][0];
+					intCardnumber[intCount2+1][0] = intTemp;
+					
+					intTemp = intCardnumber[intCount2][2];
+					intCardnumber[intCount2][2] = intCardnumber[intCount2+1][2];
+					intCardnumber[intCount2+1][2] = intTemp;
+					
+					
+				}
+			}
+		}
+	}		
 }
 
     
