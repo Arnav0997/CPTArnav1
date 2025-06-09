@@ -37,15 +37,13 @@ public class CPTTools{
         con.println("Thanks for playing");
     }
     
-    public int[][] CreateDeck(){
+    public static int[][] CreateDeck(int intCardnumber[][]){
         int intCountCol;
         int intCountRow;
         int intCol0 = 1;
         int intCol1 = 1;  
         
-        int intCardnumber[][] = new int[54][3]; 
-        
-        for(intCountRow = 0; intCountRow < 54; intCountRow++){
+        for(intCountRow = 0; intCountRow < 52; intCountRow++){
             for(intCountCol = 0; intCountCol < 3; intCountCol++){
 				
 				// Set card number (Coloumn 0)
@@ -61,7 +59,8 @@ public class CPTTools{
                  else if(intCountCol == 1){
                     intCardnumber[intCountRow][intCountCol] = intCol1;
                     intCol1++;
-                    if(intCol1 == 5){      
+                    if(intCol1 == 5){ 						
+						intCol1 = 1;  						   
                     }
                  }
                  else if(intCountCol == 1){
@@ -76,14 +75,13 @@ public class CPTTools{
         }    return intCardnumber;  
     }
     
-    public void ShowDeck(int array[][]){
+    public static void ShowDeck(Console con, int intCardnumber[][]){
 	
-	for(int i = 0; i < array.length; i++){
-		for(int j = 0; j < array[0].length; j++){
-			con.println(array[i][j]);
+	for(int i = 0; i < 52; i++){
+			con.println(intCardnumber[i][0] + "-" + intCardnumber[i][1] + "-" + intCardnumber[i][2]);
 		}
+	}
 }
-}
-}
-        
+
+    
 	
