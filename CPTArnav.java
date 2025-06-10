@@ -23,6 +23,7 @@ public class CPTArnav{
 				CPTTools.ShowDeck(con, intCardnumber);
 				CPTTools.ShuffleDeck(intCardnumber);
 				CPTTools.ShowDeck(con, intCardnumber);
+				CPTTools.ShowCard(con, intCardnumber[0][0], intCardnumber [0][1]);
 			}else{
 				con.println("That's not an option");
 			}

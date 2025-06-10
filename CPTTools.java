@@ -66,7 +66,7 @@ public class CPTTools{
     public static void ShowCard(Console con, int intCardNumber, int intCardSuit){
 		
 		String strCard;
-		String strSuit;
+		String strSuit = "";
 		
 		if(intCardNumber == 11){
 			strCard = "Jack";
@@ -99,7 +99,7 @@ public class CPTTools{
 			
 		}
 		
-		con.println(strCard +" of "+intCardSuit);
+		con.println(strCard +" of "+strSuit);
 	} 
 		
 		
@@ -152,7 +152,7 @@ public class CPTTools{
     
     public static void ShowDeck(Console con, int intCardnumber[][]){
 	
-	for(int i = 0; i < 52; i++){
+	for(int i = 0; i < 5; i++){
 			con.println(intCardnumber[i][0] + "-" + intCardnumber[i][1] + "-" + intCardnumber[i][2]);
 		}
 	}
