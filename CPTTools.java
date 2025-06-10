@@ -10,7 +10,7 @@ public class CPTTools{
         con.println("Enter 3 to quit");
     }
     
-    public static void ShowPlayscreen(Console con){
+    public static void ShowPlayscreen(Console con, int intCardnumber[][]){
         String strName;
         double dblBet = 0;
         double dblBalance = 1000;
@@ -27,7 +27,82 @@ public class CPTTools{
             con.println("enter your new bet");
             dblBet = con.readDouble();
         }    
+       			
+       	int intDealerCard[][] = new int[5][2];
+       	int intPlayerCard[][] = new int[5][2];       	
+    	
+		intPlayerCard[0][0] = intCardnumber[0][0];
+		intPlayerCard[0][1] = intCardnumber[0][1];
+		intDealerCard[0][0] = intCardnumber[1][0];
+		intDealerCard[0][1] = intCardnumber[1][1];
+		intPlayerCard[1][0] = intCardnumber[2][0];
+		intPlayerCard[1][1] = intCardnumber[2][1];
+		
+		int intTopCard = 3;
+		int NumDealerCards = 1;
+		int NumPlayerCards = 2;
+		boolean blnBust = false;
+		
+
+
+		while(blnBust != true || NumPlayerCards != 5){
+			
+				// Ask User what they want: Hit or Stay
+				
+				// If User wants to hit
+				intPlayerCard[NumPlayerCards][0] = intCardnumber[intTopCard][0];
+				intPlayerCard[NumPlayerCards][1] = intCardnumber[intTopCard][1];
+				intTopCard++;
+				NumPlayerCards++;
+			
+		}
+			
+		
+
+        
+        
     }
+    
+    public static void ShowCard(Console con, int intCardNumber, int intCardSuit){
+		
+		String strCard;
+		String strSuit;
+		
+		if(intCardNumber == 11){
+			strCard = "Jack";
+	
+		}else if(intCardNumber == 12){
+			strCard = "Queen";
+			
+		}else if(intCardNumber == 13){
+			strCard = "King";
+	
+		}else if(intCardNumber == 1){
+			strCard = "Ace";
+		
+		}else{
+			strCard = " " + intCardNumber;
+		
+		}
+		
+		if(intCardSuit == 1){
+			strSuit = "Diamonds";
+			
+		}else if(intCardSuit == 2){
+			strSuit = "Clubs";
+
+		}else if(intCardSuit == 3){
+			strSuit = "Hearts";
+		
+		}else if(intCardSuit == 4){
+			strSuit = "Spades";
+			
+		}
+		
+		con.println(strCard +" of "+intCardSuit);
+	} 
+		
+		
     
     public static void ShowLeaderboardscreen(Console con){
         con.println("Here is the leaderboard");

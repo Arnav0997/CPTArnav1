@@ -13,7 +13,7 @@ public class CPTArnav{
 			intScreenType = con.readInt();
 		
 			if(intScreenType == 1){
-				CPTTools.ShowPlayscreen(con);
+				CPTTools.ShowPlayscreen(con, intCardnumber);
 			}else if(intScreenType == 2){
 				CPTTools.ShowLeaderboardscreen(con);
 			}else if(intScreenType == 3){
