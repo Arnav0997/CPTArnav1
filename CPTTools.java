@@ -43,6 +43,10 @@ public class CPTTools{
 		int NumPlayerCards = 2;
 		boolean blnBust = false;
 		
+		con.println("Here are your cards ");
+		ShowCard(con, intPlayerCard[0][0], intPlayerCard[0][1]);
+		ShowCard(con, intPlayerCard[1][0], intPlayerCard[1][1]);
+		
 		int intPlayersTotal = CalculateTotal(intPlayerCard, NumPlayerCards);
 		con.println("Total for player " + intPlayersTotal);
 
@@ -59,8 +63,13 @@ public class CPTTools{
 	
 				intPlayerCard[NumPlayerCards][0] = intCardnumber[intTopCard][0];
 				intPlayerCard[NumPlayerCards][1] = intCardnumber[intTopCard][1];
-				intTopCard++;
+				
+				con.println("Here is your next card");
+				ShowCard(con, intPlayerCard[NumPlayerCards][0], intPlayerCard[NumPlayerCards][1]);
+				con.println("Total for player " + intPlayersTotal);
+				
 				NumPlayerCards++;
+				intTopCard++;
 				
 			// If user wants to stay
 			}else if(intChoice == 2){
