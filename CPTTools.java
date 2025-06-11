@@ -43,8 +43,8 @@ public class CPTTools{
 		int NumPlayerCards = 2;
 		boolean blnBust = false;
 		
-
-		con.println("Total for player " + CalculateTotal(intPlayerCard[][], NumPlayerCards));
+		int intPlayersTotal = CalculateTotal(intPlayerCard, NumPlayerCards);
+		con.println("Total for player " + intPlayersTotal);
 
 		while(blnBust != true || NumPlayerCards != 5){
 			
@@ -192,11 +192,12 @@ public class CPTTools{
 					intCardnumber[intCount2][2] = intCardnumber[intCount2+1][2];
 					intCardnumber[intCount2+1][2] = intTemp;
 					
-					
+					}
 				}
 			}
 		}
-		public static int CalculateTotal(int intCardnumber[][], int intNumCards){	
+		
+		public static int CalculateTotal (int intCardnumber[][], int intNumCards){	
 		
 		int intCount;
 		int intCardValue;
