@@ -44,23 +44,35 @@ public class CPTTools{
 		boolean blnBust = false;
 		
 
+		con.println("Total for player " + CalculateTotal(intPlayerCard[][], NumPlayerCards));
 
 		while(blnBust != true || NumPlayerCards != 5){
 			
-				// Ask User what they want: Hit or Stay
-				
-				// If User wants to hit
+			int intChoice;
+			
+			// Ask User what they want: Hit or Stay
+			con.println("Enter 1 to hit or 2 to stay");
+			intChoice = con.readInt();
+					
+			// If User wants to hit
+			if(intChoice == 1){ 
+	
 				intPlayerCard[NumPlayerCards][0] = intCardnumber[intTopCard][0];
 				intPlayerCard[NumPlayerCards][1] = intCardnumber[intTopCard][1];
 				intTopCard++;
 				NumPlayerCards++;
-			
-		}
-			
-		
-
-        
-        
+				
+			// If user wants to stay
+			}else if(intChoice == 2){
+				// Add up cards
+				
+				
+				// Dealers turn
+				// Compare dealer total and player total
+				
+				
+			}
+		}    
     }
     
     public static void ShowCard(Console con, int intCardNumber, int intCardSuit){
@@ -184,8 +196,39 @@ public class CPTTools{
 				}
 			}
 		}
-	}		
-}
+		public static int CalculateTotal(int intCardnumber[][], int intNumCards){	
+		
+		int intCount;
+		int intCardValue;
+		int intTotal = 0;
+		
+		
+		for(intCount = 0; intCount < intNumCards; intCount++){
+			if(intCardnumber[intCount][0] == 11 || intCardnumber[intCount][0] == 12 || intCardnumber[intCount][0] == 13){
+				intCardValue = 10;
+				
+			}else if(intCardnumber[intCount][0] == 1)
+			{
+				if(intTotal <= 10){
+					intCardValue = 11;
+				
+				}else{
+					intCardValue = 1;
+				}
+			
+			}else{
+				intCardValue = intCardnumber[intCount][0];
+
+			}
+			
+			intTotal = intTotal + intCardValue;
+									
+		}
+		return intTotal;
+	}
+}	
+	
+	
 
     
 	
