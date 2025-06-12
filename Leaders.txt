@@ -1,2 +1,7 @@
 arnav - 1500.0
 jack - 500.0
+arnav - 500.0
+arnav - 968.0
+arnav - 2000.0
+arnav - 500.0
+arnav - 1130.0
