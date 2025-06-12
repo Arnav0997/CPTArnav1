@@ -16,3 +16,8 @@ Anthony - 400.0
 ant - 988.0
 Arnav - 2000.0
 Arnav - 1222.0
+AJ - 0.0
+giganigeria - 950.0
+arnav - 970.0
+Arnav - 0.0
+arnav - 910.0

@@ -1,7 +1,11 @@
+// Arnav Arora
+// BlackJack by Arnav
+// Last modified June 12, 2025
+// Version 1.4
 import arc.*;
 
 public class CPTTools{
-    Console con = new Console();
+    Console con = new Console("Blackjack by Arnav", 1280, 720);
     
     public static void ShowHomescreen(Console con){
 		
@@ -163,7 +167,7 @@ public class CPTTools{
 					con.sleep(2000);
 					con.println("");
 				}
-				if(CalculateTotal(intDealerCard, NumDealerCards) >= 21){
+				if(CalculateTotal(intDealerCard, NumDealerCards) > 21){
 					con.println("Dealer busted!");
 					blnBust = true;
 					con.sleep(2000);
@@ -275,9 +279,9 @@ public class CPTTools{
 		Leaders.close();
     }
     
-    // Display goodbye message
+    // System.exit
     public static void ShowQuitscreen(Console con){
-        con.println("Thanks for playing");
+		System.exit(0);
     }
     
     public static int[][] CreateDeck(int intCardnumber[][]){
@@ -324,9 +328,10 @@ public class CPTTools{
     
     public static void ShowDeck(Console con, int intCardnumber[][]){
 	
-	// for(int i = 0; i < 5; i++){
-			// con.println(intCardnumber[i][0] + "-" + intCardnumber[i][1] + "-" + intCardnumber[i][2]);
-		// }
+	for(int i = 0; i < 5; i++){
+		con.println(intCardnumber[i][0] + "-" + intCardnumber[i][1] + "-" + intCardnumber[i][2]);
+		
+		}
 	}
 	
 	// Shuffles the deck based on a random number in column 2 using bubblesort
