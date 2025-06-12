@@ -30,8 +30,10 @@ public class CPTArnav{
 			}else if(intScreenType == 0){
 				CPTTools.ShowDeck(con, intCardnumber);
 				CPTTools.ShowCard(con, intCardnumber[0][0], intCardnumber [0][1]);
-			}else if (intScreenType == 4){
+			}else if (intScreenType == 5){
 				con.println("How do robots eat pizza? One byte at a time.");
+			}else if (intScreenType ==4){
+				CPTTools.ShowHelpscreen(con);
 			}else{
 				con.println("That's not an option");
 			}

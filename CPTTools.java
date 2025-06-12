@@ -18,6 +18,7 @@ public class CPTTools{
 		con.println("  1 ➤ Play");
 		con.println("  2 ➤ View Leaderboard");
 		con.println("  3 ➤ Quit");
+		con.println("  4 ➤ Help Menu");
 		con.println("");
 		con.print("Enter your choice: ");
     }
@@ -128,7 +129,7 @@ public class CPTTools{
 				NumPlayerCards++;
 				intTopCard++;
 				con.println("");
-				con.println("Updated Player Total: " + CalculateTotal(intPlayerCard, NumPlayerCards));
+				con.println("Your updated total: " + CalculateTotal(intPlayerCard, NumPlayerCards));
 				
 				con.sleep(1000);
 				
@@ -151,19 +152,19 @@ public class CPTTools{
 			}else if(intChoice == 2){
 				 			
 				// Dealer's turn to hit until 17 or higher
-			
+					con.clear();
 				while(CalculateTotal(intDealerCard, NumDealerCards) < 17 && NumDealerCards <= 5){
 					
 					con.println("");
-					con.println("You chose to stay");
-					con.sleep(1000);
 					intDealerCard[NumDealerCards][0] = intCardnumber[intTopCard][0];
 					intDealerCard[NumDealerCards][1] = intCardnumber[intTopCard][1];
 					con.println("It is now the dealer's turn...");
+					con.sleep(2000);
 					ShowCard(con, intDealerCard[NumDealerCards][0], intDealerCard[NumDealerCards][1]);
+					con.sleep(2000);
 					NumDealerCards++;
 					intTopCard++;
-					con.println("Dealer's total " + CalculateTotal(intDealerCard, NumDealerCards));
+					con.println("Dealer's total: " + CalculateTotal(intDealerCard, NumDealerCards));
 					con.sleep(2000);
 					con.println("");
 				}
@@ -399,7 +400,21 @@ public class CPTTools{
 		}
 		return intTotal;
 	}
-}	
+	
+		public static void ShowHelpscreen(Console con){
+			
+			con.println("Face cards (Jack, Queen, King) are worth 10 points");
+			con.println("Aces can be 1 or 11");
+			con.println("All other cards have their face value");
+			con.println("Player is dealt two cards and dealer is delt 1");
+			con.println("Players can hit (take more cards) or stand (keep their current hand)");
+			con.println("If a player's hand exceeds 21, they bust and lose");
+			con.println("The dealer's hand is also determined by hitting or standing according to house rules");
+			con.println("A player wins if their hand is closer to 21 than the dealer's, without busting");
+			con.println("The dealer's hand must not go over 21");
+			con.println("If the player and dealer have hands of equal value, the bet is returned");
+		}
+	}	
 	
 	
 
