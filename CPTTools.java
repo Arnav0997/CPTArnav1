@@ -24,7 +24,7 @@ public class CPTTools{
         con.println("Welcome to BlackJack");
         con.println("What is your name");
         strName = con.readLine();
-        con.println("Here is $1000 "+strName+"!");
+        con.println("You have "+ dblBalance+"$" +strName+"!");
         con.println("How much do you want to bet?");
         dblBet = con.readDouble();
         
@@ -56,15 +56,11 @@ public class CPTTools{
 		// Giving the player 2 cards
 		
 		con.println("");
-		con.println("");
-		con.println("");
 		con.println("");	
 		con.println("Here are your cards ");
 		ShowCard(con, intPlayerCard[0][0], intPlayerCard[0][1]);
 		ShowCard(con, intPlayerCard[1][0], intPlayerCard[1][1]);
 		
-		con.println("");
-		con.println("");
 		con.println("");
 		con.println("");
 		con.println("Here is the dealer's card");
@@ -74,8 +70,6 @@ public class CPTTools{
 		
 		con.println("");
 		con.println("");
-		con.println("");
-		con.println("");
 		CalculateTotal(intPlayerCard, NumPlayerCards);
 		con.println("Total for player " + CalculateTotal(intPlayerCard, NumPlayerCards));
 		
@@ -83,12 +77,10 @@ public class CPTTools{
 		
 		// Created the main game while loop
 
-		while((blnBust != true || NumPlayerCards != 5) && intChoice == 1){
+		while((blnBust != true && NumPlayerCards <= 5) && intChoice == 1){
 			
 			// Ask User what they want: Hit or Stay
 			
-			con.println("");
-			con.println("");
 			con.println("");
 			con.println("");
 			con.println("Enter 1 to hit or 2 to stay");
@@ -102,8 +94,6 @@ public class CPTTools{
 				intPlayerCard[NumPlayerCards][1] = intCardnumber[intTopCard][1];
 				con.println("");
 				con.println("");
-				con.println("");
-				con.println("");
 				con.println("Here is your next card");
 				ShowCard(con, intPlayerCard[NumPlayerCards][0], intPlayerCard[NumPlayerCards][1]);
 
@@ -111,12 +101,16 @@ public class CPTTools{
 				intTopCard++;
 				con.println("");
 				con.println("");
-				con.println("");
-				con.println("");
 				con.println("Total for player " + CalculateTotal(intPlayerCard, NumPlayerCards));
 				
-			if(CalculateTotal(intPlayerCard, NumPlayerCards) >= 21){
-				con.println("You busted");
+				int intDealerTotal = CalculateTotal(intDealerCard, NumDealerCards);
+				int intPlayerTotal = CalculateTotal(intPlayerCard, NumPlayerCards); 	
+				
+				if(intPlayerTotal > 21){
+					
+					con.println("You busted " + intPlayerTotal);
+					blnBust = true;
+					break;
 			}
 		
 				
@@ -126,30 +120,58 @@ public class CPTTools{
 				 			
 				// Dealers turn
 			
-				while(CalculateTotal(intDealerCard, NumDealerCards) < 17 || NumDealerCards != 5){
+				while(CalculateTotal(intDealerCard, NumDealerCards) < 17 && NumDealerCards <= 5){
 					
-					con.println("");
-					con.println("");
 					con.println("");
 					con.println("");
 					intDealerCard[NumDealerCards][0] = intCardnumber[intTopCard][0];
 					intDealerCard[NumDealerCards][1] = intCardnumber[intTopCard][1];
 					con.println("It is now the dealer's turn");
 					ShowCard(con, intDealerCard[NumDealerCards][0], intDealerCard[NumDealerCards][1]);
-					con.println("Total for CPU " + CalculateTotal(intDealerCard, NumDealerCards));
 					NumDealerCards++;
 					intTopCard++;
+					con.println("Total for CPU " + CalculateTotal(intDealerCard, NumDealerCards));
+					con.sleep(3000);
 				}
 				if(CalculateTotal(intDealerCard, NumDealerCards) >= 21){
-				con.println("You busted");
+					con.println("Dealer busted");
+					blnBust = true;
+				}
 			}	
 		}	
 			
 			// Compare dealer total and player total
+		int intDealerTotal = CalculateTotal(intDealerCard, NumDealerCards);
+		int intPlayerTotal = CalculateTotal(intPlayerCard, NumPlayerCards);
+		
+		if(intPlayerTotal == intDealerTotal){
+			con.println("It's a tie");
+			con.println("Here is your "+dblBet+" back");
+			con.println("Your current balance is "+dblBalance);
 			
-			if(CalculateTotal(intDealerCard, NumDealerCards)) > (CalculateTotal(intPlayerCard, NumPlayerCards)){
-				con.println("You lost");
+		}else if(intPlayerTotal > 21){
+			con.println("You lost");
+			dblBalance = dblBalance - dblBet;
+			con.println("You lost your bet");
+			con.println("Your current balance is: " + dblBalance);
+			
+		}else if(intDealerTotal > 21){
+			con.println("You win");
+			dblBalance = (dblBet * 2) + dblBalance;
+			con.println("Your current balance is "+dblBalance);
+			
+		}else if(intPlayerTotal < intDealerTotal){
+			con.println("You lost");
+			dblBalance = dblBalance - dblBet;
+			con.println("You lost your bet");
+			con.println("Your current balance is: " + dblBalance);
+				
+		}else{ 
+			con.println("You win");
+			dblBalance = (dblBet * 2) + dblBalance;
+			con.println("Your current balance is "+dblBalance);
 			}
+			
 		}
     
     public static void ShowCard(Console con, int intCardNumber, int intCardSuit){
