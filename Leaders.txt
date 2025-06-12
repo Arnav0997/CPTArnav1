@@ -5,3 +5,14 @@ arnav - 968.0
 arnav - 2000.0
 arnav - 500.0
 arnav - 1130.0
+arnav - 500.0
+Arnav - 500.0
+Jack - 2200.0
+JACK - 1600.0
+Romy - 400.0
+srnav - 970.0
+anthony - 800.0
+Anthony - 400.0
+ant - 988.0
+Arnav - 2000.0
+Arnav - 1222.0
