@@ -6,11 +6,14 @@ public class CPTTools{
     public static void ShowHomescreen(Console con){
 		
 		// Displaying the homescreen
-		
-        con.println("Welcome to BlackJack");
-        con.println("Enter 1 to play");
-        con.println("Enter 2 to view leaderboard");
-        con.println("Enter 3 to quit");
+		con.println("=====================================================");
+        con.println("              🎴 Welcome to BLACKJACK 🎴            ");
+        con.println("=====================================================");
+        con.println("  1 ➤ Play");
+        con.println("  2 ➤ View Leaderboard");
+        con.println("  3 ➤ Quit");
+        con.println("");
+		con.print("Enter your choice: ");
     }
     
     public static void ShowPlayscreen(Console con, int intCardnumber[][]){
@@ -21,9 +24,9 @@ public class CPTTools{
         double dblBet = 0;
         double dblBalance = 1000;
         
-        con.println("Welcome to BlackJack");
         con.println("What is your name");
         strName = con.readLine();
+        con.println("");
         con.println("You have "+ dblBalance+"$" +strName+"!");
         con.println("How much do you want to bet?");
         dblBet = con.readDouble();
@@ -172,6 +175,11 @@ public class CPTTools{
 			con.println("Your current balance is "+dblBalance);
 			}
 			
+			// Update leaderboard file
+		TextOutputFile Leaders = new TextOutputFile("Leaders.txt", true);
+		Leaders.println(strName +" - "+ dblBalance);
+		Leaders.close();
+			
 		}
     
     public static void ShowCard(Console con, int intCardNumber, int intCardSuit){
@@ -221,6 +229,13 @@ public class CPTTools{
     
     public static void ShowLeaderboardscreen(Console con){
         con.println("Here is the leaderboard");
+        String strName;
+		TextInputFile Leaders = new TextInputFile("Leaders.txt");
+		while(Leaders.eof() != true){
+			strName = Leaders.readLine();
+			con.println(strName);
+		}
+		Leaders.close();
     }
     
     public static void ShowQuitscreen(Console con){
@@ -307,7 +322,7 @@ public class CPTTools{
 		int intCount;
 		int intCardValue;
 		int intTotal = 0;
-		
+		int intBonus = 0;
 		
 		for(intCount = 0; intCount < intNumCards; intCount++){
 			if(intCardnumber[intCount][0] == 11 || intCardnumber[intCount][0] == 12 || intCardnumber[intCount][0] == 13){
@@ -317,6 +332,7 @@ public class CPTTools{
 			{
 				if(intTotal <= 10){
 					intCardValue = 11;
+					intBonus = 10;
 				
 				}else{
 					intCardValue = 1;
@@ -328,7 +344,10 @@ public class CPTTools{
 			}
 			
 			intTotal = intTotal + intCardValue;
-									
+			if(intTotal	> 21){
+				intTotal = intTotal - intBonus;
+				intBonus = 0;
+			}			
 		}
 		return intTotal;
 	}
