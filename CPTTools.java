@@ -23,14 +23,13 @@ public class CPTTools{
 		con.print("Enter your choice: ");
     }
     
-    public static void ShowPlayscreen(Console con, int intCardnumber[][]){
+    public static double ShowPlayscreen(Console con, int intCardnumber[][], double dblBalance){
 		
 		con.clear();
 		// Displays the gameplay screen, and incorporates betting
 		
         String strName;
         double dblBet = 0;
-        double dblBalance = 1000;
         
         // Ask player for their name and bet
         
@@ -221,7 +220,8 @@ public class CPTTools{
 		TextOutputFile Leaders = new TextOutputFile("Leaders.txt", true);
 		Leaders.println(strName +" - "+ dblBalance);
 		Leaders.close();
-			
+		
+		return dblBalance;
 		}
     
     public static void ShowCard(Console con, int intCardNumber, int intCardSuit){

@@ -11,6 +11,7 @@ public class CPTArnav{
     
 		int intCardnumber[][] = new int[52][3];	// Deck of cards
 		int intScreenType = 0;
+		double dblBalance = 1000;
 		
 		while(intScreenType !=3){			
 			CPTTools.ShowHomescreen(con);
@@ -20,7 +21,7 @@ public class CPTArnav{
 				CPTTools.CreateDeck(intCardnumber);
 				CPTTools.ShuffleDeck(intCardnumber);
 				// CPTTools.ShowDeck(con, intCardnumber);
-				CPTTools.ShowPlayscreen(con, intCardnumber);
+				dblBalance = CPTTools.ShowPlayscreen(con, intCardnumber, dblBalance);
 				
 			}else if(intScreenType == 2){
 				CPTTools.ShowLeaderboardscreen(con);
